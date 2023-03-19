@@ -1,0 +1,8 @@
+<h4>{{ title }}</h4>
+<ul>
+{{posts}}
+{% for post in posts %}
+    {{post}}
+    <li><a href="{% url "blog-post-detail" post.slug %}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
