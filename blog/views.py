@@ -11,7 +11,8 @@ logger = logging.getLogger(__name__)
 # logger.debug()
 # logger.info()
 def index(request):
-  posts = Post.objects.filter(published_at__lte=timezone.now())
+  posts = Post.objects.filter(published_at__lte=timezone.now()).select_related("author")
+
   logger.debug("Got %d posts", len(posts))
 
   return render(request, "blog/index.html", {"posts": posts})
@@ -49,5 +50,7 @@ def post_detail(request, slug):
         request, "blog/post-detail.html", {"post": post, "comment_form": comment_form}
     )
 
+def get_ip(request):
+  return HttpResponse(request.META['REMOTE_ADDR'])
 
 

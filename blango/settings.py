@@ -45,7 +45,7 @@ class Dev(Configuration):
     INSTALLED_APPS = [
         'django.contrib.admin',
         'django.contrib.auth',
-        # 'debug_toolbar',
+        'debug_toolbar',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
         'django.contrib.messages',
@@ -58,7 +58,7 @@ class Dev(Configuration):
     CRISPY_TEMPLATE_PACK = "bootstrap5"
 
     MIDDLEWARE = [
-    # "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,6 +75,7 @@ class Dev(Configuration):
     #       "Basic": {"type": "basic"},
     #     }
     #   }
+    INTERNAL_IPS = ["192.168.11.179"]
 
     TEMPLATES = [
         {
